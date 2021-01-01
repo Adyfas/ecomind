@@ -1,4 +1,3 @@
-
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -15,6 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Ecomind",
   description: "Welcometo the Green Era of EcoMind",
+  icons: {
+    icon: [{ url: "/images/logo.png", type: "image/png" }],
+  },
 };
 
 const interDisplay = Inter({
@@ -25,6 +27,9 @@ const interDisplay = Inter({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/png" href="/images/logo.png" />
+      </head>
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
