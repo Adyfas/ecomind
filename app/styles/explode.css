@@ -1,0 +1,71 @@
+.explosion-animation-element {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.explosion-animation-element__box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.explosion-animation-element__line-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+}
+
+.explosion-animation-element__line {
+  display: block;
+  width: 2px;
+  height: 40px;
+  /* background: var(--color-neon-dark); */
+  border-radius: 2px;
+  opacity: 0;
+  transform-origin: center bottom;
+  animation: explode-line 0.8s ease-out forwards;
+}
+
+@keyframes explode-line {
+  0% {
+    transform: scaleY(0.2) translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(1) translateY(-30px);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+.explosion-animation-element__line-outer:nth-child(1) {
+  transform: rotate(0deg);
+}
+.explosion-animation-element__line-outer:nth-child(2) {
+  transform: rotate(45deg);
+}
+.explosion-animation-element__line-outer:nth-child(3) {
+  transform: rotate(90deg);
+}
+.explosion-animation-element__line-outer:nth-child(4) {
+  transform: rotate(135deg);
+}
+.explosion-animation-element__line-outer:nth-child(5) {
+  transform: rotate(180deg);
+}
+.explosion-animation-element__line-outer:nth-child(6) {
+  transform: rotate(225deg);
+}
+.explosion-animation-element__line-outer:nth-child(7) {
+  transform: rotate(270deg);
+}
+.explosion-animation-element__line-outer:nth-child(8) {
+  transform: rotate(315deg);
+}
