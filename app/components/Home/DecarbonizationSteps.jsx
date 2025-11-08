@@ -128,8 +128,8 @@ export default function DecarbonizationSteps() {
   ];
 
   return (
-    <div className="w-full py-20 px-4">
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center">
+    <div className="w-full py-20 px-4 grid justify-items-center">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,10 +137,13 @@ export default function DecarbonizationSteps() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold"> The Crisis and the Change</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">
+            The Crisis and the Change
+          </h1>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-6">
+        {/* Gunakan grid untuk tata letak kartu */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 justify-items-center">
           {decarbData.map((item, index) => (
             <DecarbCard key={item.id} item={item} index={index} />
           ))}

@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### EcoMind 🌿
 
-## Getting Started
+## EcoMind — Think Clean, Act Green
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Latar Belakang
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Masalah sampah di Indonesia masih menjadi isu serius. Berdasarkan data Kementerian Lingkungan Hidup dan Kehutanan, lebih dari 60 juta ton sampah dihasilkan setiap tahun, dan hanya sebagian kecil yang dikelola dengan benar.
+Salah satu penyebab utamanya adalah rendahnya kesadaran masyarakat dalam memilah antara sampah organik dan anorganik.
+Kebanyakan orang masih belum tahu bahwa sampah organik bisa diolah menjadi kompos, sementara sampah anorganik dapat didaur ulang menjadi produk baru.
+Di sisi lain, generasi muda saat ini hidup di era digital — mereka belajar dan berinteraksi lewat teknologi. Maka dari itu, diperlukan media pembelajaran yang modern, interaktif, dan menyenangkan untuk mengajarkan pentingnya memilah sampah.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+# Ide & Solusi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+EcoMind hadir sebagai platform web berbasis AI Vision yang mampu mendeteksi jenis sampah secara real-time menggunakan kamera perangkat pengguna.
+Dengan hanya mengarahkan kamera ke sebuah objek (misalnya kulit pisang, botol plastik, atau kertas), sistem akan menampilkan:
+•	Jenis sampahnya (organik / anorganik)
+•	Penjelasan edukatif singkat
+•	Tips cara pengolahan atau daur ulangnya
+Melalui pendekatan visual dan langsung, EcoMind membantu pengguna dari berbagai usia — mulai dari siswa SD hingga masyarakat umum — belajar memilah sampah dengan cara yang seru dan interaktif.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Tujuan Proyek
+•	Meningkatkan kesadaran masyarakat tentang pentingnya memilah sampah.
+•	Menyediakan sarana edukasi digital yang menarik dan mudah digunakan.
+•	Mendorong generasi muda untuk berperan aktif dalam menjaga lingkungan.
+•	Menggabungkan teknologi AI dengan edukasi lingkungan untuk menciptakan dampak sosial nyata.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# Visi
+
+Menjadikan EcoMind sebagai platform edukasi digital yang membantu menciptakan generasi sadar lingkungan dan berperan aktif dalam membangun Indonesia yang lebih bersih.

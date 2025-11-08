@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Vision from "./components/Home/Vision";
 import DecarbonizationSteps from "./components/Home/DecarbonizationSteps";
+import VisionMobile from "./components/Home/VisionMobile";
+import CardImageTrash from "./components/Home/CardImageTrash";
+import EcomindApp from "./components/Home/EcomindApp";
 
 export default function Home() {
   useEffect(() => {
@@ -17,15 +20,16 @@ export default function Home() {
     requestAnimationFrame(raf);
   }, []);
   return (
-    <section className="container">
+    <section>
       <Navbar />
 
       <Hero />
 
       <DecarbonizationSteps />
       <PointInformation />
-
       <Vision />
+      <EcomindApp />
+      <CardImageTrash />
     </section>
   );
 }

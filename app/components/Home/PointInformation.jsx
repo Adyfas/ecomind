@@ -1,14 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import DecarbonizationSteps from "./DecarbonizationSteps";
-
-const ReadMoreButton = () => (
-  <button className="group inline-flex items-center gap-2 text-gray-900 font-medium hover:translate-x-1 transition-transform cursor-pointer">
-    Read More
-    <span className="group-hover:translate-x-0.5 transition-transform">›</span>
-  </button>
-);
 
 const ImageBox = ({ imageUrl, alt, rounded = true, className }) => (
   <motion.div
@@ -46,7 +38,7 @@ const PointInformation = () => {
             viewport={{ once: true }}
             className="space-y-6 order-2 md:order-1"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight">
               Every Day Matters
             </h2>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -88,7 +80,7 @@ const PointInformation = () => {
             className="order-1 md:order-1"
           >
             <ImageBox
-              imageUrl="/images/mountain-but-.jpg"
+              imageUrl="/images/mountain-trash.jpg"
               alt="Green forest canopy"
               rounded={true}
             />
@@ -101,7 +93,7 @@ const PointInformation = () => {
             viewport={{ once: true }}
             className="space-y-6 order-2 md:order-2"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight">
               Together We Can Restore Our Planet
             </h2>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -120,87 +112,3 @@ const PointInformation = () => {
 };
 
 export default PointInformation;
-
-// "use client";
-
-// import { motion } from "framer-motion";
-// import React from "react";
-// import ExplodeLine from "../animations/ExplodeLine";
-
-// const PointInformation = () => {
-//   return (
-//     <section className="relative flex h-screen w-full flex-col items-center justify-center bg-neon-dark p-4 pt-16 text-white">
-//       <ExplodeLine
-//         className="absolute right-15 bottom-1/5 z-30"
-//         delay={7000}
-//         color="bg-white"
-//       />
-//       <ExplodeLine
-//         className="absolute top-5 left-15 z-30"
-//         delay={9000}
-//         color="bg-white"
-//       />
-
-//       <motion.h1
-//         className="text-center font-bold text-3xl md:text-6xl"
-//         initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-//         whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-//         viewport={{ once: true }}
-//         transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-//       >
-//         The world is drowning in waste — and Indonesia is no exception.
-//       </motion.h1>
-
-//       <div className="mt-10 flex w-full max-w-6xl flex-col items-center gap-8 md:flex-row">
-//         <motion.div
-//           className="w-full md:w-1/2"
-//           initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-//           whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-//         >
-//           <iframe
-//             className="h-[250px] w-full rounded-lg shadow-lg md:h-[400px]"
-//             src="https://www.youtube.com/embed/nb0pM93tmi8"
-//             title="YouTube video player"
-//             frameBorder="0"
-//             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-//             allowFullScreen
-//           ></iframe>
-//         </motion.div>
-
-//         <div className="flex w-full flex-col items-center gap-5 md:w-1/2 md:items-start">
-//           <motion.p
-//             className="text-base md:text-left md:text-lg text-start"
-//             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-//             whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-//           >
-//             Every day, millions of tons of waste end up polluting our land,
-//             rivers, and oceans. Indonesia alone generates more than 175,000 tons
-//             of waste daily — much of which is mismanaged or burned in open air.
-//             This crisis isn’t just about trash; it’s about the air we breathe,
-//             the food we eat, and the future we leave behind.
-//           </motion.p>
-//           <motion.p
-//             className="text-start text-sm md:text-left md:text-lg"
-//             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-//             whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-//           >
-//             Environmental awareness isn’t optional anymore — it’s essential. By
-//             understanding where our waste goes and how it impacts our planet, we
-//             can start building habits that make a real difference. Small actions
-//             today shape the cleaner, greener world of tomorrow. The waste we
-//             ignore today will return to us tomorrow — in the water we drink, the
-//             food we eat, and the air we breathe.
-//           </motion.p>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default PointInformation;
