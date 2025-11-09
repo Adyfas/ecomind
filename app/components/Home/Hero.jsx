@@ -18,7 +18,7 @@ const Hero = () => {
   return (
     <section
       ref={container}
-      className="h-screen w-full flex-col text-center overflow-hidden flex items-center justify-center"
+      className="h-screen w-full flex-col text-center overflow-hidden flex items-center justify-center max-w-7xl mx-auto px-4"
     >
       <motion.div style={{ y, opacity }}>
         <ExplodeLine className={"absolute left-10 top-1/5 z-30"} delay={4000} />

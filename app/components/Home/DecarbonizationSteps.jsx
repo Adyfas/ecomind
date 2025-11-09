@@ -7,7 +7,7 @@ const DecarbCard = ({ item, index }) => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { delay: index * 0.5, duration: 0.6 },
+      transition: { delay: index * 0.2, duration: 0.4 },
     },
   };
 

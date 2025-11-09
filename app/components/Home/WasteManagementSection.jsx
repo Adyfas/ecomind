@@ -3,14 +3,13 @@ import { motion } from "framer-motion";
 
 const WasteManagementSection = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4">
+    <div className="max-w-5xl mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] md:grid-rows-[auto_auto] gap-3">
-        {/* BOX 1 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           className="relative rounded-3xl overflow-hidden bg-linear-to-br from-green-100 to-emerald-50 p-8 md:p-10 text-gray-900 shadow-2xl md:col-span-2"
         >
           <div className="flex flex-col md:flex-row items-center gap-8">
@@ -57,19 +56,25 @@ const WasteManagementSection = () => {
           </div>
         </motion.div>
 
-        <div className="flex justify-center md:row-start-2 md:order-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+          className="flex justify-center md:row-start-2 md:order-2"
+        >
           <img
             src="/images/truk-sampah-kotoran-dan-orang-orang-dengan-layanan-pengumpulan-di-jalan-di-kota-untuk-kebersihan-lingkungan-publik-daur-ulang-sampah-dan-pria-yang-bekerja-dengan-limbah-atau-sampah-untuk-sanitasi-jalan-dengan-transportasi_590464-298744.avif"
             alt="Garbage truck picking up trash"
             className="rounded-2xl shadow-lg object-cover w-full h-auto md:h-full max-h-[400px]"
           />
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
           className="relative rounded-3xl overflow-hidden bg-neon-dark text-white p-8 md:p-10 shadow-md md:row-start-2 md:order-1 min-w-[280px] md:min-w-[320px] max-w-full"
         >
           <div className="flex-1 space-y-4">

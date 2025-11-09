@@ -1,10 +1,10 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
-const EcomindApp = () => {
+const ProfileMe = () => {
   return (
     <div className="max-w-7xl mx-auto px-4">
       <motion.div
@@ -18,41 +18,31 @@ const EcomindApp = () => {
           <div className="relative rounded-2xl overflow-hidden">
             <div className="relative h-[500px]">
               <Image
-                src="/images/ecomind-app.jpg"
+                src="/images/adyfas-ver.jpeg"
                 alt="Try Ecomind"
                 width={500}
                 height={350}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto -translate-y-35"
               />
             </div>
           </div>
         </div>
-
-        <div className="w-full max-w-lg space-y-4">
+        <div className="w-full max-w-lg space-y-4 ">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-            Scan. Learn. Change.
+            This Guy
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
-            Discover What You Throw Away
+            Just Call Me <span className="font-neonfuture">Adyfas</span>
           </h2>
           <p className="text-sm md:text-base text-gray-600 mt-3">
-            Behind every piece of waste lies a story — of time, impact, and
-            responsibility. With EcoMind, you can see beyond the trash: learn
-            how each item affects the planet and how small actions can make a
-            big difference.
+            Behind the luxury of EcoMind, there are students who are happy to
+            educate many people. Meet Ferdi Iskandar or commonly known on the
+            internet as Adyfas.
           </p>
-          <div className="mt-6">
-            <Link
-              href="/downloads/canary-care-report-2025.pdf"
-              className="inline-flex items-center px-6 py-3 bg-neon-dark hover:bg-neon-dark/90 hover:scale-105 transform transition-all duration-500 font-medium rounded-full shadow-sm text-white"
-            >
-              Get Started →
-            </Link>
-          </div>
         </div>
       </motion.div>
     </div>
   );
 };
 
-export default EcomindApp;
+export default ProfileMe;

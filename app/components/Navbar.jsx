@@ -4,19 +4,13 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Mail } from "lucide-react";
 import { SiInstagram, SiWhatsapp, SiGithub } from "react-icons/si";
+import { Navitems } from "../global/data/datas";
+import { SearchIcon } from "lucide-react";
+import {useRouter, usePathname} from "next/navigation"
 
-const Navbar = () => {
+const Navbar = ({ Search = false, onSearch }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const itemsNavbar = [
-    { name: "Home", link: "/" },
-    { name: "AI", link: "/scan" },
-    { name: "Library", link: "/learn" },
-    { name: "Quiz", link: "/quiz" },
-    { name: "Statistics", link: "/statics" },
-    { name: "About Us", link: "/aboutus" },
-    { name: "Contact", link: "/contact" },
-  ];
+  const router = usePathname()
 
   const socialMedia = [
     {
@@ -52,12 +46,12 @@ const Navbar = () => {
         <h1 className="text-2xl font-neonfuture">EcoMind</h1>
       </Link>
 
-      <ul className="hidden md:flex gap-5">
-        {itemsNavbar.map((item, index) => (
+      <ul className={`${Search ? "hidden" : "md:flex"} hidden gap-5`}>
+        {Navitems.map((item, index) => (
           <li key={index}>
             <Link
               href={item.link}
-              className="font-bold hover:text-neon-dark/70 text-sm transition-all duration-500"
+              className={`font-bold hover:text-neon-dark/70 text-sm transition-all duration-500 ${router === item.link && 'border-b'}`}
             >
               {item.name}
             </Link>
@@ -65,7 +59,9 @@ const Navbar = () => {
         ))}
       </ul>
 
-      <div className="hidden md:flex items-center gap-4">
+      <div
+        className={`${Search ? "hidden" : "md:flex"} hidden items-center gap-4`}
+      >
         <button className="w-10 h-10 shadow-2xl bg-gray-300/50 rounded-full flex items-center justify-center cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +98,9 @@ const Navbar = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden flex items-center justify-center w-10 h-10 rounded-full cursor-pointer"
+        className={`md:hidden items-center justify-center w-10 h-10 rounded-full cursor-pointer ${
+          Search ? "hidden" : "flex"
+        }`}
       >
         {isOpen ? (
           <X size={22} className="text-neon-dark" />
@@ -116,7 +114,7 @@ const Navbar = () => {
           <>
             <motion.div
               key="overlay"
-              className="fixed inset-0 bg-black/40 backdrop-blur-md z-40"
+              className="fixed inset-0 bg-black/40 backdrop-blur-md z-40 lg:hidden md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -153,12 +151,12 @@ const Navbar = () => {
               />
 
               <ul className="flex flex-col gap-4 mt-4">
-                {itemsNavbar.map((item, index) => (
+                {Navitems.map((item, index) => (
                   <li key={index}>
                     <Link
                       href={item.link}
                       onClick={() => setIsOpen(false)}
-                      className="block font-semibold hover:text-gray-700 text-neon-dark hover:underline transition-colors duration-300"
+                      className={`${router === item.link && 'underline'} block font-semibold hover:text-gray-700 text-neon-dark hover:underline transition-colors duration-300`}
                     >
                       {item.name}
                     </Link>
@@ -196,6 +194,27 @@ const Navbar = () => {
           </>
         )}
       </AnimatePresence>
+      {Search && (
+        <motion.div
+          className="relative w-1/2"
+          whileFocus={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
+          <input
+            type="text"
+            onChange={(e) => onSearch(e.target.value)}
+            className="border-neon-dark rounded-xl p-3 w-full border outline-0 bg-abu pr-12 focus:bg-white focus:border-neon-dark/70 transition-all duration-200"
+            placeholder="Search Here"
+          />
+          <motion.div
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <SearchIcon className="w-5 h-5 text-gray-500 hover:text-neon-dark transition-colors duration-200" />
+          </motion.div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };
