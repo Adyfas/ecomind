@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles } from 'lucide-react';
+import { X, Sparkles } from "lucide-react";
 
 export default function ResultsPopup({
   showResults,
@@ -50,7 +50,20 @@ export default function ResultsPopup({
                 <div className="flex items-center justify-between text-xs text-white/80">
                   <span>Confidence</span>
                   <span className="font-semibold text-toska">
-                    {(aiResult.score * 100).toFixed(0)}%
+                    {aiResult?.confidence &&
+                      `${(aiResult.confidence * 100).toFixed(0)}`}{" "}
+                    %
+                  </span>
+                  <span
+                    className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-2 ${
+                      aiResult.type === "non_waste"
+                        ? "bg-red-500/20 text-red-400"
+                        : "bg-toska/20 text-toska"
+                    }`}
+                  >
+                    {aiResult.type === "non_waste"
+                      ? "NOT WASTE"
+                      : aiResult.type.toUpperCase()}
                   </span>
                 </div>
               </div>
@@ -58,7 +71,7 @@ export default function ResultsPopup({
               <div className="w-full bg-white/10 rounded-full h-1.5 mb-3">
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: `${aiResult.score * 100}%` }}
+                  animate={{ width: `${aiResult?.confidence * 100}%` }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
                   className="h-1.5 bg-linear-to-r from-toska to-neon rounded-full"
                 />

@@ -8,6 +8,7 @@ export default function AIChatPanel({
   chatInput,
   onChatInputChange,
   onChatSend,
+  handleSend
 }) {
   const messagesEndRef = useRef(null);
   const messagesContainerRef = useRef(null);
@@ -22,10 +23,10 @@ export default function AIChatPanel({
     return () => clearTimeout(timer);
   }, [chatMessages]);
 
-  const handleSend = (e) => {
-    e.preventDefault(); 
-    onChatSend();
-  };
+  // const handleSend = (e) => {
+  //   e.preventDefault(); 
+  //   onChatSend();
+  // };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {

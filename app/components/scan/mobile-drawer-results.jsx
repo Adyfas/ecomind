@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Drawer } from "vaul";
-import { Sparkles } from 'lucide-react';
+import { Sparkles } from "lucide-react";
 
 export default function MobileDrawerResults({
   drawerOpen,
@@ -35,7 +35,11 @@ export default function MobileDrawerResults({
                   </h2>
                   <div className="flex items-center justify-center gap-4 text-sm text-white/80">
                     <span>
-                      {(aiResult.score * 100).toFixed(0)}% Confidence
+                      {aiResult?.confidence
+                        ? `${(aiResult.confidence * 100).toFixed(
+                            0
+                          )}% Confidence`
+                        : "85% Confidence"}
                     </span>
                   </div>
                 </div>

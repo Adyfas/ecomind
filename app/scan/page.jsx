@@ -30,7 +30,6 @@ export default function ScanPage() {
   ]);
   const [chatInput, setChatInput] = useState("");
 
-  // Camera initialization
   useEffect(() => {
     let stream;
 
@@ -62,82 +61,6 @@ export default function ScanPage() {
       }
     };
   }, []);
-
-  const handleScan = async () => {
-    if (!videoRef.current || !cameraActive) return;
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const canvas = document.createElement("canvas");
-      const video = videoRef.current;
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(video, 0, 0);
-      const image = canvas.toDataURL("image/jpeg", 0.9);
-
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      const wasteTypes = [
-        {
-          label: "Plastic Bottle",
-          score: 0.94,
-          type: "recyclable",
-          impact: "Recycling saves 75% energy vs new production",
-        },
-        {
-          label: "Food Waste",
-          score: 0.89,
-          type: "compostable",
-          impact: "Composting reduces methane emissions by 95%",
-        },
-        {
-          label: "Glass Container",
-          score: 0.87,
-          type: "recyclable",
-          impact: "Glass can be recycled infinitely without quality loss",
-        },
-        {
-          label: "Paper Packaging",
-          score: 0.82,
-          type: "recyclable",
-          impact: "Recycling paper saves 17 trees per ton",
-        },
-        {
-          label: "Metal Can",
-          score: 0.91,
-          type: "recyclable",
-          impact: "Aluminum recycling saves 95% energy vs new production",
-        },
-      ];
-
-      const result = wasteTypes[Math.floor(Math.random() * wasteTypes.length)];
-      setAiResult(result);
-
-      if (window.innerWidth >= 768) {
-        setShowResults(true);
-      } else {
-        setDrawerOpen(true);
-      }
-
-      // Add AI insight to chat
-      setTimeout(() => {
-        const insight = {
-          id: Date.now(),
-          role: "assistant",
-          content: getWasteInsight(result),
-        };
-        setChatMessages((prev) => [...prev, insight]);
-      }, 500);
-    } catch (err) {
-      setError("Analysis failed. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const getWasteInsight = (result) => {
     const insights = {
@@ -178,7 +101,7 @@ export default function ScanPage() {
     }
   };
 
-  const handleChatSend = () => {
+  const handleChatSend = async () => {
     if (!chatInput.trim()) return;
 
     const userMessage = {
@@ -190,34 +113,160 @@ export default function ScanPage() {
     setChatMessages((prev) => [...prev, userMessage]);
     setChatInput("");
 
-    setTimeout(() => {
-      const aiResponse = {
-        id: Date.now() + 1,
-        role: "assistant",
-        content: getAIResponse(chatInput, aiResult),
-      };
-      setChatMessages((prev) => [...prev, aiResponse]);
-    }, 1000);
+    const aiResponseContent = await getAIResponse(chatInput);
+    const aiResponse = {
+      id: Date.now() + 1,
+      role: "assistant",
+      content: aiResponseContent,
+    };
+    setChatMessages((prev) => [...prev, aiResponse]);
   };
 
-  const getAIResponse = (question, result) => {
-    const responses = [
-      "Sustainable waste management begins with proper identification. Every correctly sorted item makes a difference.",
-      "Consider the lifecycle of materials. Recycling transforms waste into valuable resources for new products.",
-      "Composting organic waste not only reduces landfill impact but creates nutrient-rich soil for gardening.",
-      "The most sustainable choice is reducing consumption first, then reusing, and finally recycling.",
-    ];
-    return responses[Math.floor(Math.random() * responses.length)];
-  };
+  const getAIResponse = async (question) => {
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: question,
+        }),
+      });
 
+      if (!response.ok) {
+        throw new Error("Failed to get AI response");
+      }
+
+      const data = await response.json();
+      return data.reply;
+    } catch (error) {
+      console.error("AI Chat Error:", error);
+      return "Maaf, saya sedang belajar tentang lingkungan. Coba tanya tentang sampah organik, daur ulang, atau kompos! 🌱";
+    }
+  };
   const closeResults = () => {
     setShowResults(false);
     setAiResult(null);
   };
 
+  const handleSend = async (e) => {
+    e.preventDefault();
+
+    if (!chatInput.trim()) return;
+
+    const userMessage = {
+      id: Date.now(),
+      role: "user",
+      content: chatInput,
+    };
+
+    setChatMessages((prev) => [...prev, userMessage]);
+    setChatInput("");
+
+    const aiResponseContent = await getAIResponse(chatInput);
+    const aiResponse = {
+      id: Date.now() + 1,
+      role: "assistant",
+      content: aiResponseContent,
+    };
+    setChatMessages((prev) => [...prev, aiResponse]);
+  };
+
+const handleScan = async () => {
+  if (!videoRef.current || !cameraActive) return;
+
+  setLoading(true);
+  setError(null);
+
+  try {
+    const canvas = document.createElement("canvas");
+    const video = videoRef.current;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(video, 0, 0);
+    
+    const imageData = canvas.toDataURL("image/jpeg", 0.7);
+    console.log('🔄 Sending image for advanced analysis...');
+
+    const classificationResponse = await fetch('/api/classify-image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: imageData })
+    });
+
+    const resultData = await classificationResponse.json();
+    console.log('📦 ADVANCED ANALYSIS RESULT:', resultData);
+
+    let classificationResult = resultData.classification;
+    
+
+    console.log('🎯 FINAL CLASSIFICATION:', {
+      label: classificationResult.label,
+      type: classificationResult.type, 
+      confidence: classificationResult.confidence,
+      isWaste: classificationResult.type !== 'non_waste' && classificationResult.type !== 'unknown',
+      impact: classificationResult.impact
+    });
+
+    if (isNaN(classificationResult.confidence) || classificationResult.confidence === undefined) {
+      classificationResult.confidence = classificationResult.type === 'non_waste' ? 0 : 0.85;
+    }
+
+    setAiResult(classificationResult);
+
+    // SHOW RESULTS
+    if (window.innerWidth >= 768) {
+      setShowResults(true);
+    } else {
+      setDrawerOpen(true);
+    }
+
+    setTimeout(async () => {
+      try {
+        let prompt;
+        
+        if (classificationResult.type === 'non_waste') {
+          prompt = `User scanned a non-waste item: "${classificationResult.label}". Explain that this is not waste and ask them to scan actual waste items like plastic, food, paper, etc.`;
+        } else {
+          prompt = `Jelaskan tentang ${classificationResult.label} (jenis: ${classificationResult.type}) dalam konteks sampah dan lingkungan`;
+        }
+        
+        const aiInsight = await getAIResponse(prompt);
+        const insightMessage = {
+          id: Date.now(),
+          role: "assistant",
+          content: aiInsight,
+        };
+        setChatMessages((prev) => [...prev, insightMessage]);
+      } catch (chatError) {
+        console.error('Chat error:', chatError);
+      }
+    }, 1000);
+
+  } catch (err) {
+    console.error('❌ Scan error:', err);
+    setError("Analysis failed. Please try again.");
+    setAiResult(getFallbackWasteData());
+    setShowResults(true);
+  } finally {
+    setLoading(false);
+  }
+};
+
+function getFallbackWasteData() {
+  const wasteTypes = [
+    { label: "Plastic Bottle", type: "plastic", confidence: 0.94, impact: "Recycling saves 75% energy vs new production" },
+    { label: "Food Waste", type: "organic", confidence: 0.89, impact: "Composting reduces methane emissions by 95%" },
+    { label: "General Item", type: "general", confidence: 0.5, impact: "Please check local waste disposal guidelines" },
+  ];
+  return wasteTypes[Math.floor(Math.random() * wasteTypes.length)];
+}
+
   return (
     <div className="h-screen bg-deep-green flex overflow-hidden relative">
-      {/* Mobile Chat Button */}
       <button
         onClick={() => setChatMobile(true)}
         className="rounded-full w-14 h-14 bg-neon-dark p-2 flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-500 fixed z-30 lg:hidden bottom-1 right-2"
@@ -225,19 +274,15 @@ export default function ScanPage() {
         <SiChatbot className="w-6 h-6 text-white" />
       </button>
 
-      {/* Main Scanner Area */}
       <div className="flex-1 flex flex-col relative h-full">
-        {/* Header */}
         <ScanHeader cameraActive={cameraActive} />
 
-        {/* Camera Container */}
         <CameraContainer
           videoRef={videoRef}
           loading={loading}
           cameraActive={cameraActive}
           onFlipCamera={handleFlipCamera}
         >
-          {/* Results Popup */}
           <ResultsPopup
             showResults={showResults}
             aiResult={aiResult}
@@ -246,7 +291,6 @@ export default function ScanPage() {
           />
         </CameraContainer>
 
-        {/* Scan Button */}
         <ScanButton
           loading={loading}
           cameraActive={cameraActive}
@@ -254,12 +298,12 @@ export default function ScanPage() {
         />
       </div>
 
-      {/* AI Chat Panel (Desktop) */}
       <AIChatPanel
         chatMessages={chatMessages}
         chatInput={chatInput}
         onChatInputChange={setChatInput}
         onChatSend={handleChatSend}
+        handleSend={handleSend}
       />
 
       {/* Mobile Drawer Results */}
