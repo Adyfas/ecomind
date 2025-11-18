@@ -1,9 +1,6 @@
 "use client";
-import { useTransform } from "framer-motion";
-import { motion } from "framer-motion";
-import { useScroll } from "framer-motion";
 import Lenis from "lenis";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import BlogSection from "../../components/Learn/BlogSection";
 import FooterEcomind from "../../components/FooterEcomind";
@@ -17,24 +14,12 @@ const page = () => {
     }
     requestAnimationFrame(raf);
   }, []);
-
-  const container = useRef();
   const [searchQuery, setSearchQuery] = useState("");
-
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "95vh"]);
   return (
     <>
       <Navbar Search={true} onSearch={setSearchQuery} />
-      <div ref={container}>
-        <motion.div className="py-15" style={{ y }}>
-          <div className="h-[190vh]">
-            <BlogSection page={true} searchQuery={searchQuery} />
-          </div>
-        </motion.div>
+      <div className="pt-30">
+        <BlogSection page={true} searchQuery={searchQuery} />
       </div>
       <FooterEcomind />
     </>

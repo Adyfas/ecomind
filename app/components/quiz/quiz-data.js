@@ -1,7 +1,6 @@
-import { Leaf, Zap, Flame } from "lucide-react"
+import { Leaf, Zap, Flame } from "lucide-react";
 
 export const allQuestions = [
-  // EASY
   {
     id: 1,
     question: "What type of waste is a plastic water bottle?",
@@ -23,7 +22,8 @@ export const allQuestions = [
   {
     id: 3,
     question: "What kind of waste is this?",
-    imageUrl: "/images/plastic-bottle.jpg",
+    imageUrl:
+      "https://img.freepik.com/free-vector/realistic-vector-icon-plastic-bottle-water-isolated-white-background-beverage-drink-mockup_134830-1356.jpg?semt=ais_hybrid&w=740&q=80",
     options: ["Recyclable", "Hazardous", "Organic", "Residual"],
     correctAnswer: "Recyclable",
     type: "image",
@@ -51,7 +51,12 @@ export const allQuestions = [
   {
     id: 6,
     question: "Which item belongs in the recyclable bin?",
-    options: ["Old newspaper", "Used tissue", "Crumpled chip bag", "Dirty pizza box"],
+    options: [
+      "Old newspaper",
+      "Used tissue",
+      "Crumpled chip bag",
+      "Dirty pizza box",
+    ],
     correctAnswer: "Old newspaper",
     type: "text",
     difficulty: "easy",
@@ -60,7 +65,8 @@ export const allQuestions = [
   {
     id: 7,
     question: "What kind of waste is this?",
-    imageUrl: "/images/aluminum-can.jpg",
+    imageUrl:
+      "https://img.freepik.com/free-vector/metal-can-illustration-3d-realistic-container-soda-energy-drink-lemonade-beer_33099-521.jpg?semt=ais_incoming&w=740&q=80",
     options: ["Organic", "Residual", "Recyclable", "Hazardous"],
     correctAnswer: "Recyclable",
     type: "image",
@@ -88,7 +94,8 @@ export const allQuestions = [
   {
     id: 10,
     question: "What kind of waste is this?",
-    imageUrl: "/images/fruit-peel.jpg",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoztGA4JJvbgp5AIy8brXlLippP6G9JTpuIA&s",
     options: ["Hazardous", "Residual", "Recyclable", "Organic"],
     correctAnswer: "Organic",
     type: "image",
@@ -117,7 +124,8 @@ export const allQuestions = [
   {
     id: 13,
     question: "What kind of waste is this?",
-    imageUrl: "/images/newspaper.jpg",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4xyzykIumpZpF1zxc6x0S_5ewAPG4vjjQA&s",
     options: ["Residual", "Recyclable", "Hazardous", "Organic"],
     correctAnswer: "Recyclable",
     type: "image",
@@ -145,7 +153,8 @@ export const allQuestions = [
   {
     id: 16,
     question: "What kind of waste is this?",
-    imageUrl: "/images/broken-glass.jpg",
+    imageUrl:
+      "https://www.shutterstock.com/image-photo/empty-broken-drinking-glass-isolated-600nw-1708665904.jpg",
     options: ["Recyclable", "Hazardous", "Residual", "Organic"],
     correctAnswer: "Residual",
     type: "image",
@@ -173,7 +182,8 @@ export const allQuestions = [
   {
     id: 19,
     question: "What kind of waste is this?",
-    imageUrl: "/images/candy-wrapper.jpg",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEY8FErwMAD2RooFxCxLFgFPPWWFkxQxMNdg&s",
     options: ["Recyclable", "Organic", "Residual", "Hazardous"],
     correctAnswer: "Residual",
     type: "image",
@@ -202,7 +212,8 @@ export const allQuestions = [
   {
     id: 22,
     question: "What kind of waste is this?",
-    imageUrl: "/images/battery.jpg",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZJ5V1pnavB-bQp2N9WpUHiTp9FJl17zkXg&s",
     options: ["Organic", "Recyclable", "Hazardous", "Residual"],
     correctAnswer: "Hazardous",
     type: "image",
@@ -230,7 +241,8 @@ export const allQuestions = [
   {
     id: 25,
     question: "What kind of waste is this?",
-    imageUrl: "/images/lightbulb.jpg",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY0SHEm-11eNHefahYnB7NkJJ5Qeffpd5F5g&s",
     options: ["Residual", "Hazardous", "Recyclable", "Organic"],
     correctAnswer: "Hazardous",
     type: "image",
@@ -258,7 +270,8 @@ export const allQuestions = [
   {
     id: 28,
     question: "What kind of waste is this?",
-    imageUrl: "/images/coffee-cup.jpg",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9ZYzD3E71jbWgkzzMRdUe3cRI_3mF844lw&s",
     options: ["Recyclable", "Organic", "Residual", "Hazardous"],
     correctAnswer: "Residual",
     type: "image",
@@ -283,7 +296,7 @@ export const allQuestions = [
     difficulty: "hard",
     bonus: 4,
   },
-]
+];
 
 export const initialLeaderboard = [
   { name: "Adyfas", score: 95, avatar: "/images/adyfas-ver.jpeg" },
@@ -294,7 +307,7 @@ export const initialLeaderboard = [
   { name: "Samsudin", score: 80, avatar: "/images/person-1.jpg" },
   { name: "Roy", score: 78, avatar: "/images/person-1.jpg" },
   { name: "Hana", score: 75, avatar: "/images/person-2.jpg" },
-]
+];
 
 export const difficultyModes = [
   {
@@ -318,4 +331,4 @@ export const difficultyModes = [
     desc: "20 pts per correct",
     bg: "bg-orange-50",
   },
-]
+];
