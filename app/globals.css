@@ -8,10 +8,10 @@
 }
 
 @theme {
-  --color-toska: #2ec27e;
-  --color-abu: #f4f4f4;
-  --color-neon: #00bcd4;
-  --color-neon-dark: rgb(7, 41, 41);
+  --color-toska: var(--color-toska);
+  --color-abu: var(--color-abu);
+  --color-neon: var(--color-neon);
+  --color-neon-dark: var(--color-neon-dark);
 
   --font-neonfuture: "NeonFuture", sans-serif;
 }

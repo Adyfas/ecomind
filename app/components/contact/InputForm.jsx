@@ -27,9 +27,6 @@ const InputForm = () => {
   return (
     <section className="max-w-5xl mx-auto px-4 py-15">
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
         <h1 className="text-3xl md:text-4xl font-bold mb-4 py-15">
@@ -43,10 +40,6 @@ const InputForm = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <motion.div
-          initial={{ x: -100, opacity: 1 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="lg:col-span-2 bg-white p-6 rounded-lg shadow-md"
         >
           <h2 className="text-xl font-semibold mb-6">Let's Contact Us</h2>
@@ -149,10 +142,6 @@ const InputForm = () => {
         </motion.div>
 
         <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="bg-gray-50 p-6 rounded-lg shadow-md"
         >
           <h2 className="text-xl font-semibold mb-4">Get in touch</h2>

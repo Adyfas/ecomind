@@ -43,7 +43,7 @@ const EcomindApp = () => {
           </p>
           <div className="mt-6">
             <Link
-              href="/downloads/canary-care-report-2025.pdf"
+              href="/scan"
               className="inline-flex items-center px-6 py-3 bg-neon-dark hover:bg-neon-dark/90 hover:scale-105 transform transition-all duration-500 font-medium rounded-full shadow-sm text-white"
             >
               Get Started →

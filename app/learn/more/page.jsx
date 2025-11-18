@@ -1,12 +1,12 @@
 "use client";
-import FooterEcomind from "@/app/components/FooterEcomind";
-import BlogSection from "@/app/components/Learn/BlogSection";
-import Navbar from "@/app/components/Navbar";
 import { useTransform } from "framer-motion";
 import { motion } from "framer-motion";
 import { useScroll } from "framer-motion";
 import Lenis from "lenis";
 import React, { useEffect, useRef, useState } from "react";
+import Navbar from "../../components/Navbar";
+import BlogSection from "../../components/Learn/BlogSection";
+import FooterEcomind from "../../components/FooterEcomind";
 
 const page = () => {
   useEffect(() => {

@@ -6,11 +6,11 @@ import { Menu, X, Mail } from "lucide-react";
 import { SiInstagram, SiWhatsapp, SiGithub } from "react-icons/si";
 import { Navitems } from "../global/data/datas";
 import { SearchIcon } from "lucide-react";
-import {useRouter, usePathname} from "next/navigation"
+import { useRouter, usePathname } from "next/navigation";
 
 const Navbar = ({ Search = false, onSearch }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const router = usePathname()
+  const router = usePathname();
 
   const socialMedia = [
     {
@@ -51,7 +51,9 @@ const Navbar = ({ Search = false, onSearch }) => {
           <li key={index}>
             <Link
               href={item.link}
-              className={`font-bold hover:text-neon-dark/70 text-sm transition-all duration-500 ${router === item.link && 'border-b'}`}
+              className={`font-bold hover:text-neon-dark/70 text-sm transition-all duration-500 ${
+                router === item.link && "border-b"
+              }`}
             >
               {item.name}
             </Link>
@@ -76,7 +78,10 @@ const Navbar = ({ Search = false, onSearch }) => {
           </svg>
         </button>
 
-        <button className="shadow-2xl bg-neon-dark rounded-full flex items-center justify-start w-35 py-1 cursor-pointer group hover:shadow-2xl">
+        <Link
+          href={"/scan"}
+          className="shadow-2xl bg-neon-dark rounded-full flex items-center justify-start w-35 py-1 cursor-pointer group hover:shadow-2xl"
+        >
           <div className="rounded-full w-8 h-8 bg-linear-to-br from-pink-400 via-teal-400 to-green-400 flex items-center justify-center mx-2 group-hover:translate-x-24 transition-all duration-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +98,7 @@ const Navbar = ({ Search = false, onSearch }) => {
           <p className="group-hover:-translate-x-5 transition-all duration-700 text-white font-bold font-neonfuture tracking-widest text-xl">
             Start
           </p>
-        </button>
+        </Link>
       </div>
 
       <button
@@ -156,7 +161,9 @@ const Navbar = ({ Search = false, onSearch }) => {
                     <Link
                       href={item.link}
                       onClick={() => setIsOpen(false)}
-                      className={`${router === item.link && 'underline'} block font-semibold hover:text-gray-700 text-neon-dark hover:underline transition-colors duration-300`}
+                      className={`${
+                        router === item.link && "underline"
+                      } block font-semibold hover:text-gray-700 text-neon-dark hover:underline transition-colors duration-300`}
                     >
                       {item.name}
                     </Link>
@@ -164,7 +171,10 @@ const Navbar = ({ Search = false, onSearch }) => {
                 ))}
               </ul>
 
-              <button className="shadow-2xl bg-neon-dark rounded-full flex items-center justify-center w-full py-2 group hover:shadow-xl">
+              <Link
+                href={"/scan"}
+                className="shadow-2xl bg-neon-dark rounded-full flex items-center justify-center w-full py-2 group hover:shadow-xl"
+              >
                 <div className="rounded-full w-8 h-8 bg-linear-to-br from-pink-400 via-teal-400 to-green-400 flex items-center justify-center mx-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +191,7 @@ const Navbar = ({ Search = false, onSearch }) => {
                 <p className="text-white font-bold font-neonfuture tracking-widest text-xl">
                   Start
                 </p>
-              </button>
+              </Link>
 
               <div className="flex items-center justify-center mt-6 gap-5">
                 {socialMedia.map((item, idx) => (

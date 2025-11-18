@@ -1,7 +1,5 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Home/Hero";
-import PointInformation from "@/components/Home/PointInformation";
+import Navbar from "./components/Navbar";
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import Vision from "./components/Home/Vision";
@@ -12,6 +10,8 @@ import FooterEcomind from "./components/FooterEcomind";
 import { useScroll } from "framer-motion";
 import { useTransform } from "framer-motion";
 import { motion } from "framer-motion";
+import Hero from "./components/Home/Hero";
+import PointInformation from "./components/Home/PointInformation";
 
 export default function Home() {
   useEffect(() => {

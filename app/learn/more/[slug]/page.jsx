@@ -1,6 +1,7 @@
 "use client";
 
-import "@/styles/articles.css";
+// import "@/styles/articles.css";
+import "../../../styles/articles.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -98,7 +99,10 @@ export default function ArticlePage() {
       </header>
 
       <article className="max-w-4xl mx-auto px-4 pb-20">
-        <div className="slug" dangerouslySetInnerHTML={{ __html: article.content }} />
+        <div
+          className="slug"
+          dangerouslySetInnerHTML={{ __html: article.content }}
+        />
 
         {article.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-gray-200">
@@ -138,7 +142,7 @@ export default function ArticlePage() {
         {/* Back to Articles */}
         <div className="mt-12 text-center">
           <Link
-            href="/learn"
+            href="/learn/more"
             className="
               inline-flex 
               items-center 

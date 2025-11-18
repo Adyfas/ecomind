@@ -4,10 +4,6 @@ import React from "react";
 const BoxContact = () => {
   return (
     <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
       className="mt-16 bg-gray-100 rounded-xl overflow-hidden shadow-lg max-w-4xl mx-auto px-4"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

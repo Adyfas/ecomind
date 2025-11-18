@@ -1,8 +1,13 @@
 "use client";
-import "@/styles/explode.css";
+import "../../styles/explode.css";
 import React, { useEffect, useState } from "react";
 
-const ExplodeLine = ({ className, delay = 10000, duration = 800, color ='bg-neon-dark' }) => {
+const ExplodeLine = ({
+  className,
+  delay = 10000,
+  duration = 800,
+  color = "bg-neon-dark",
+}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -42,7 +47,9 @@ const ExplodeLine = ({ className, delay = 10000, duration = 800, color ='bg-neon
         <div className="explosion-animation-element__box">
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="explosion-animation-element__line-outer">
-              <div className={`explosion-animation-element__line ${color}`}></div>
+              <div
+                className={`explosion-animation-element__line ${color}`}
+              ></div>
             </div>
           ))}
         </div>
