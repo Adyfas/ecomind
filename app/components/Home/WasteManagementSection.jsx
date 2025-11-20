@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const WasteManagementSection = () => {
   return (
@@ -24,17 +25,18 @@ const WasteManagementSection = () => {
                 Empowering students, families, and communities to recognize
                 waste, learn from it, and take meaningful action.
               </p>
-
-              <motion.button
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 0 15px rgba(74, 222, 128, 0.2)",
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-6 px-6 py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-all duration-300"
-              >
-                Learn More →
-              </motion.button>
+              <Link href={"/learn"}>
+                <motion.button
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 0 15px rgba(74, 222, 128, 0.2)",
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  className="mt-6 px-6 py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-all duration-300"
+                >
+                  Learn More →
+                </motion.button>
+              </Link>
             </div>
           </div>
 
@@ -89,17 +91,18 @@ const WasteManagementSection = () => {
               EcoMind helps you see waste differently, act wisely, and inspire
               others.
             </p>
-
-            <motion.button
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 15px rgba(59, 130, 246, 0.2)",
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="mt-6 px-6 py-3 bg-neon/50 text-white rounded-lg font-medium hover:bg-neon/70 cursor-pointer transition-all duration-300"
-            >
-              Take Action →
-            </motion.button>
+            <Link href={"/scan"}>
+              <motion.button
+                whileHover={{
+                  scale: 1.02,
+                  boxShadow: "0 0 15px rgba(59, 130, 246, 0.2)",
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="mt-6 px-6 py-3 bg-neon/50 text-white rounded-lg font-medium hover:bg-neon/70 cursor-pointer transition-all duration-300"
+              >
+                Take Action →
+              </motion.button>
+            </Link>
           </div>
 
           <div className="absolute right-5 bottom-0 transform opacity-40">
