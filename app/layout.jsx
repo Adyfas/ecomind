@@ -15,7 +15,7 @@ export const metadata = {
   title: "Ecomind",
   description: "Welcometo the Green Era of EcoMind",
   icons: {
-    icon: [{ url: "/images/logo.png", type: "image/png" }],
+    icon: { url: "/images/faveicon.icon" },
   },
 };
 
@@ -26,10 +26,7 @@ const interDisplay = Inter({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" type="image/png" href="/images/logo.png" />
-      </head>
+    <html lang="en">  
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
