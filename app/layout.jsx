@@ -15,7 +15,7 @@ export const metadata = {
   title: "Ecomind",
   description: "Welcometo the Green Era of EcoMind",
   icons: {
-    icon: { url: "/faveicon.icon" },
+    icon: { url: "/faveicon.ico" },
   },
 };
 
